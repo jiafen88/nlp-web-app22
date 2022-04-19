@@ -1,0 +1,1 @@
+web: sh streamlit_setup.sh && streamlit run Web_App_Scratch_Streamlit.py
