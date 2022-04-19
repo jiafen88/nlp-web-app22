@@ -16,7 +16,7 @@ st.set_page_config(page_title="NLP Machine Learning Applications",
 # NLP Pkgs
 from textblob import TextBlob
 import spacy
-from gensim.summarization import summarize
+#from gensim.summarization import summarize
 import neattext as nt
 from googletrans import Translator
 from transformers import pipeline
@@ -212,11 +212,12 @@ def main():
         with col1:
             raw_text = st.text_area("Original Text", "Paste original text in English. Try new text by typing or paste..",height=250)
             if st.button("Summarize"):
-                summary_text = summarize(raw_text,ratio=0.25)
+                #summary_text = summarize(raw_text,ratio=0.25)
+                summary_text = summarizer(raw_text)
 
         with col2:
             if summary_text != "":
-                st.text_area("Summary",summary_text)
+                st.text_area("Summary",summary_text[0]["summary_text"])
             else:
                 st.warning("Please provide a string with at least 3 characters...")
 
