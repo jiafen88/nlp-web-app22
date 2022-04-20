@@ -114,7 +114,7 @@ def main():
                     col1, col2 = st.columns(2)
 
                     with col1:
-                        with st.beta_expander("Basic Info"):
+                        with st.expander("Basic Info"):
                             st.success("Text Stats")
                             word_desc = nt.TextFrame(raw_text).word_stats()
                             result_desc = {"Length of Text":word_desc['Length of Text'],
@@ -165,7 +165,7 @@ def main():
         tran_result = ""
 
         with col1:
-            raw_text = st.text_area("Original Text","Write something to be translated...")
+            raw_text = st.text_area("Original Text","Write something to be translated...",  height=350)
             if len(raw_text) < 3:
                 st.warning("Please provide a string with at least 3 characters...")
             else:
@@ -195,7 +195,7 @@ def main():
         with col2:
             if tran_result != "":
                 # st.success(tran_result.text)
-                st.text_area("Translated Text",tran_result.text)
+                st.text_area("Translated Text",tran_result.text, height=350)
             else:
                 st.warning("Please provide a string with at least 3 characters...")
 
@@ -210,14 +210,14 @@ def main():
         col1, col2 = st.columns(2)
 
         with col1:
-            raw_text = st.text_area("Original Text", "Paste original text in English. Try new text by typing or paste..",height=250)
+            raw_text = st.text_area("Original Text", "Paste original text in English. Try new text by typing or paste..", height=350)
             if st.button("Summarize"):
                 #summary_text = summarize(raw_text,ratio=0.25)
                 summary_text = summarizer(raw_text)
 
         with col2:
             if summary_text != "":
-                st.text_area("Summary",summary_text[0]["summary_text"])
+                st.text_area("Summary",summary_text[0]["summary_text"], height=350)
             else:
                 st.warning("Please provide a string with at least 3 characters...")
 
