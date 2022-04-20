@@ -111,7 +111,7 @@ def main():
                     st.warning("Enter a Text in English...")
                 else:
                     st.info("Basic Functions")
-                    col1, col2 = st.beta_columns(2)
+                    col1, col2 = st.columns(2)
 
                     with col1:
                         with st.beta_expander("Basic Info"):
@@ -123,28 +123,28 @@ def main():
                                             "Num of Stopwords":word_desc['Num of Stopwords']}
                             st.write(result_desc)
 
-                        with st.beta_expander("Stopwords"):
+                        with st.expander("Stopwords"):
                             st.success("Stop Words List")
                             stop_w = nt.TextExtractor(raw_text).extract_stopwords()
                             st.error(stop_w)
 
                     with col2:
-                        with st.beta_expander("Processed Text"):
+                        with st.expander("Processed Text"):
                             st.success("Stopwords Excluded Text")
                             processed_text = str(nt.TextFrame(raw_text).remove_stopwords())
                             st.write(processed_text)
 
-                        with st.beta_expander("Plot Wordcloud"):
+                        with st.expander("Plot Wordcloud"):
                             st.success("Wordcloud")
                             plot_wordcloud(raw_text)
 
                     # st.write("")
                     # st.write("")
                     # st.info("Advanced Features")
-                    # col3 = st.beta_columns(1)
+                    # col3 = st.columns(1)
 
                     # with col3:
-                    #     with st.beta_expander("Tokens&Lemmas"):
+                    #     with st.expander("Tokens&Lemmas"):
                     #         st.write("T&L")
                     #         processed_text_mid = str(nt.TextFrame(raw_text).remove_stopwords())
                     #         processed_text_mid = str(nt.TextFrame(processed_text_mid).remove_puncts())
@@ -160,7 +160,7 @@ def main():
 
         st.write("")
         st.write("")
-        col1, col2 = st.beta_columns(2)
+        col1, col2 = st.columns(2)
 
         tran_result = ""
 
@@ -207,7 +207,7 @@ def main():
         st.write("")
         st.write("")
         summary_text = ""
-        col1, col2 = st.beta_columns(2)
+        col1, col2 = st.columns(2)
 
         with col1:
             raw_text = st.text_area("Original Text", "Paste original text in English. Try new text by typing or paste..",height=250)
