@@ -6,8 +6,6 @@ streamlit>=0.81.0
 textblob
 transformers
 streamlit-lottie
-wordcloud==1.8.1
-spacy>=2.2.0,<3.0.0
 
 spacy==2.3.2
 wordcloud==1.8.1
